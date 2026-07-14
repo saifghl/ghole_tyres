@@ -73,7 +73,8 @@ export default function Footer() {
           {/* Stylized placeholder for Map */}
           <div className="map-placeholder">
             <div className="map-glow"></div>
-            <span className="map-text">📍 Map Location</span>
+            <span className="map-text">Map Location</span>
+
           </div>
         </div>
       </div>
