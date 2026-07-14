@@ -5,10 +5,10 @@ import '../css/serviceDetail.css';
 
 const SERVICES_DATA = {
   'tyre-repair': {
-    icon: '🔧',
+    icon: '',
     title: 'Tyre Repair & Vulcanization',
-    price: '₹250 - ₹750',
-    time: '30 - 45 mins',
+    price: '₹200 - ₹1000',
+    time: '15 - 30 mins',
     tagline: 'Permanent, safe, and professional puncture repairs that restore your tire to full highway standards.',
     longDesc: 'Our premium repair service goes far beyond simple external plug fixes. We perform full internal vulcanization repairs. This involves demounting the tyre from the wheel rim, examining the inner lining for structural damage, prep-buffing the puncture site, and applying a specialized patch that chemically vulcanizes (bonds) under heat and pressure with the tyre carcass. This restores the tyre to its original integrity and speed rating, keeping you and your family safe on the road.',
     benefits: [
@@ -26,9 +26,9 @@ const SERVICES_DATA = {
     ]
   },
   'wheel-balancing': {
-    icon: '⚖️',
+    icon: '',
     title: 'Wheel Balancing & Alignment',
-    price: '₹800 - ₹1,500',
+    price: '₹750 - ₹1100',
     time: '45 - 60 mins',
     tagline: 'High-precision laser alignment and computerized balancing for ultra-smooth driving and maximum tyre life.',
     longDesc: 'Even minor wheel misalignments or weight imbalances can lead to steering vibrations, accelerated tread wear, and added strain on suspension components. Using state-of-the-art computer balancers and 3D laser alignment bays, our technicians adjust your vehicle\'s suspension geometry (camber, caster, and toe settings) back to factory specifications. We guarantee a smoother ride, improved handling, and a noticeble reduction in fuel consumption.',
@@ -48,7 +48,7 @@ const SERVICES_DATA = {
     ]
   },
   'safety-diagnostics': {
-    icon: '🔍',
+    icon: '',
     title: 'Tread & Safety Diagnostics',
     price: 'Free (with any service)',
     time: '15 - 20 mins',

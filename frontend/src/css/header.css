@@ -6,7 +6,10 @@
   z-index: 1000;
   transition: var(--transition-smooth);
   border-bottom: 1px solid transparent;
-  padding: 20px 0;
+  padding: 16px 0;
+  background: rgba(11, 12, 16, 0.34);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .header.scrolled {
@@ -27,16 +30,13 @@
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 6px 16px;
-  border-radius: 50px;
-  color: #000000 !important;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px 12px;
+  border-radius: 14px;
+  box-shadow: var(--shadow-premium);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   transition: var(--transition-smooth);
 }
 
@@ -46,29 +46,10 @@
   box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
 }
 
-.logo-icon {
-  width: 32px;
-  height: 32px;
-  color: #000000 !important;
-  transition: var(--transition-smooth);
-}
-
-.logo:hover .logo-icon {
-  transform: rotate(90deg);
-}
-
-.highlight {
-  color: var(--accent-primary);
-  background: var(--accent-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.logo .highlight {
-  color: #000000 !important;
-  background: none !important;
-  -webkit-background-clip: initial !important;
-  -webkit-text-fill-color: #000000 !important;
+.logo-image {
+  display: block;
+  width: clamp(100px, 12vw, 130px);
+  height: auto;
 }
 
 .navbar {
@@ -91,7 +72,8 @@
   padding: 6px 0;
 }
 
-.nav-link:hover, .nav-link:focus {
+.nav-link:hover,
+.nav-link:focus {
   color: var(--accent-primary);
 }
 
@@ -143,7 +125,7 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%) translateY(10px);
-  background: rgba(31, 32, 38, 0.96);
+  background: rgba(31, 32, 38, 0.82);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--border-glass);
@@ -228,10 +210,15 @@
     height: 100vh;
     background: var(--bg-navbar-mobile);
     backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
     border-left: 1px solid var(--border-glass);
     padding: 100px 30px 40px;
     transition: var(--transition-smooth);
     display: block;
+  }
+
+  .logo-image {
+    width: 132px;
   }
 
   .navbar.active {

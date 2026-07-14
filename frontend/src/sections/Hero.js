@@ -9,7 +9,6 @@ export default function Hero() {
         <div className="gradient-overlay"></div>
         <div className="grid-overlay"></div>
 
-        {/* Rolling Tyres Background Animation
         <div className="rolling-tyres-container">
           <div className="rolling-tyre tyre-1">
             <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -25,7 +24,7 @@ export default function Hero() {
               <path d="M50 10 L50 28 M50 72 L50 90 M10 50 L28 50 M72 50 L90 50 M22 22 L35 35 M65 65 L78 78 M78 22 L65 35 M35 65 L22 78" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
             </svg>
           </div>
-        </div> */}
+        </div>
       </div>
       <div className="container hero-container fade-in">
         <div className="hero-glass-card">
@@ -40,9 +39,9 @@ export default function Hero() {
             <Link to="/sell" className="btn btn-primary">
               Sell Your Tyres
             </Link>
-            <a href="#services" className="btn btn-secondary">
+            <Link to="/history" className="btn btn-secondary">
               Book a Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>

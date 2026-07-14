@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../css/sellSection.css';
 
 export default function BookingForm({ showToast, initialService }) {
   const getMappedService = (serviceName) => {

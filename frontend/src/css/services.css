@@ -1,5 +1,5 @@
 .services-section {
-  background-color: var(--bg-primary);
+  background: transparent;
   position: relative;
 }
 
@@ -28,6 +28,7 @@
   gap: 20px;
   padding: 24px;
   transition: var(--transition-smooth);
+  animation: revealUp 0.75s ease both;
 }
 
 .service-card:hover {
@@ -59,6 +60,56 @@
   border: 1px solid var(--border-glass);
 }
 
+.services-history-panel {
+  padding: 30px;
+  border-radius: 14px;
+  background: rgba(31, 32, 38, 0.46);
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-premium);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.services-history-panel h3 {
+  font-size: 1.55rem;
+  margin-bottom: 12px;
+}
+
+.services-history-panel > p {
+  color: var(--color-text-secondary);
+  margin-bottom: 22px;
+}
+
+.services-history-panel .history-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin: 0;
+}
+
+.services-history-panel .history-card {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  min-height: 160px;
+}
+
+.services-history-panel .card-image-wrapper {
+  height: 100%;
+  min-height: 160px;
+}
+
+.services-history-panel .card-content {
+  padding: 22px;
+}
+
+.services-history-panel .card-title {
+  font-size: 1.1rem;
+}
+
+.services-history-panel .card-desc {
+  font-size: 0.9rem;
+}
+
 .service-details h4 {
   font-size: 1.2rem;
   color: var(--color-text-primary);
@@ -78,5 +129,13 @@
 
   .service-card:hover {
     transform: translateY(-5px);
+  }
+
+  .services-history-panel .history-card {
+    grid-template-columns: 1fr;
+  }
+
+  .services-history-panel .card-image-wrapper {
+    height: 180px;
   }
 }

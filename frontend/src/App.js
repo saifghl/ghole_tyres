@@ -26,7 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home showToast={showToast} />} />
           <Route path="/services/:serviceId" element={<ServiceDetail showToast={showToast} />} />
-          <Route path="/history" element={<History />} />
+          <Route path="/history" element={<History showToast={showToast} />} />
           <Route path="/sell" element={<Sell showToast={showToast} />} />
         </Routes>
       </main>

@@ -29,12 +29,7 @@ export default function Footer() {
       <div className="container footer-grid">
         <div className="footer-col brand-col">
           <Link to="/" className="footer-logo" onClick={(e) => handleHashLinkClick(e, '#home')}>
-            <svg className="logo-icon" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="50" r="40" stroke="currentColor" strokeWidth="8" strokeDasharray="6 4" />
-              <circle cx="50" cy="50" r="22" stroke="currentColor" strokeWidth="6" />
-              <path d="M50 10 L50 28 M50 72 L50 90 M10 50 L28 50 M72 50 L90 50" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
-            </svg>
-            <span className="logo-text">GHOLE <span className="highlight">TYRES</span></span>
+            <img className="logo-image" src="/images/logo.png" alt="Ghole Tyres" />
           </Link>
           <p className="brand-desc">
             Your premium destination for pre-owned quality tyres, repairs, wheel balancing, and professional tyre diagnostics.
@@ -53,28 +48,34 @@ export default function Footer() {
             <li><Link to="/services/tyre-repair">Tyre Repair & Vulcanization</Link></li>
             <li><Link to="/services/wheel-balancing">Wheel Balancing & Alignment</Link></li>
             <li><Link to="/services/safety-diagnostics">Tread & Safety Diagnostics</Link></li>
-            <li><Link to="/history">Our History</Link></li>
+            <li><Link to="/history">Book Service</Link></li>
           </ul>
         </div>
 
         <div className="footer-col">
           <h3>Business Hours</h3>
           <ul className="hours-list">
-            <li><span>Monday - Sunday</span> <span>7:00 AM - 9:00 PM</span></li>
+            <li><span>Monday - Sunday</span></li>
+            <li> <span>9:00 AM - 9:00 PM</span></li>
           </ul>
         </div>
 
         <div className="footer-col location-col">
           <h3>Location</h3>
           <p className="address">
-            100 Industrial Parkway, Suite A<br />
-            Detroit, MI 48201
+            Mumbai-Goa Highway, Kemburli, Mahad<br />
+            Raigad - 402301
           </p>
-          {/* Stylized placeholder for Map */}
-          <div className="map-placeholder">
-            <div className="map-glow"></div>
-            <span className="map-text">Map Location</span>
-
+          {/* Google Maps Embed */}
+          <div className="map-container">
+            <iframe
+              title="Ghole Tyres Location"
+              src="https://maps.google.com/maps?q=Ghole%20Tyres,%20Kemburli,%20Mahad,%20Maharashtra%20402301&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              className="map-iframe"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </div>
@@ -83,8 +84,8 @@ export default function Footer() {
         <div className="container bottom-content">
           <p>&copy; {currentYear} Ghole Tyres. All rights reserved.</p>
           <div className="bottom-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+            <Link to="/">Privacy Policy</Link>
+            <Link to="/">Terms of Service</Link>
           </div>
         </div>
       </div>
