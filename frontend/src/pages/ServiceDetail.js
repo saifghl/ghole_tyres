@@ -9,7 +9,7 @@ const SERVICES_DATA = {
     title: 'Tyre Repair & Vulcanization',
     price: '₹200 - ₹1000',
     time: '15 - 30 mins',
-    tagline: 'Permanent, safe, and professional puncture repairs that restore your tire to full highway standards.',
+    tagline: 'Permanent, safe, and professional puncture repairs that restore your tyre to full highway standards.',
     longDesc: 'Our premium repair service goes far beyond simple external plug fixes. We perform full internal vulcanization repairs. This involves demounting the tyre from the wheel rim, examining the inner lining for structural damage, prep-buffing the puncture site, and applying a specialized patch that chemically vulcanizes (bonds) under heat and pressure with the tyre carcass. This restores the tyre to its original integrity and speed rating, keeping you and your family safe on the road.',
     benefits: [
       'Chemical-vulcanized internal patch for a lifetime seal',
@@ -51,7 +51,7 @@ const SERVICES_DATA = {
     icon: '',
     title: 'Tread & Safety Diagnostics',
     price: 'Free (with any service)',
-    time: '15 - 20 mins',
+    time: '5 - 10 mins',
     tagline: 'A comprehensive 10-point diagnostic check of your tyres to identify issues before they cause road emergencies.',
     longDesc: 'Your tyres are the critical link between your car and the pavement. Our safety diagnostic check provides a rigorous visual and technical inspection of your tyres. We measure tread depth across multiple points, examine tread wear patterns for suspension warning signs, search for dry rot or aging cracks, check valve cores for pressure leaks, and verify TPMS sensor health. You will receive a color-coded safety assessment detailing the exact state of your tyres with transparent recommendations.',
     benefits: [
@@ -64,7 +64,7 @@ const SERVICES_DATA = {
     steps: [
       { num: '1', title: 'Wear Pattern Analysis', desc: 'We diagnose wear anomalies (such as feathering, cupping, or camber wear) to locate suspension issues.' },
       { num: '2', title: 'Sidewall Structural Audit', desc: 'We inspect tyres inside and out for dangerous bulges, cuts, punctures, or dry rot cracks.' },
-      { num: '3', title: 'Valve & TPMS Check', desc: 'We test valve stems for leaks and run a diagnostic check on tire pressure monitoring sensors.' },
+      { num: '3', title: 'Valve & TPMS Check', desc: 'We test valve stems for leaks and run a diagnostic check on tyre pressure monitoring sensors.' },
       { num: '4', title: 'Safety Consult & Assessment', desc: 'We present a complete assessment showing green (healthy), yellow (monitor), or red (replace).' }
     ]
   }
