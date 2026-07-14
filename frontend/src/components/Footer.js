@@ -39,11 +39,11 @@ export default function Footer() {
           <p className="brand-desc">
             Your premium destination for pre-owned quality tyres, repairs, wheel balancing, and professional tyre diagnostics.
           </p>
-          <div className="social-links">
+          {/* <div className="social-links">
             <a href="#" className="social-icon" aria-label="Facebook">FB</a>
             <a href="#" className="social-icon" aria-label="Instagram">IG</a>
             <a href="#" className="social-icon" aria-label="Twitter">TW</a>
-          </div>
+          </div> */}
         </div>
 
         <div className="footer-col">
