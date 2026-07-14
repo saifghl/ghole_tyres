@@ -1,0 +1,37 @@
+:root {
+  /* Colors */
+  --bg-primary: #0B0C10; /* Rich Obsidian */
+  --bg-secondary: #1F2022; /* Dark Charcoal */
+  --bg-card: rgba(31, 32, 38, 0.65); /* Charcoal glass */
+  --bg-input: #15161b;
+  --bg-header-scrolled: rgba(11, 12, 16, 0.85);
+  --bg-navbar-mobile: rgba(31, 32, 38, 0.98);
+  
+  --color-text-primary: #F3F4F6; /* Cool white */
+  --color-text-secondary: #9CA3AF; /* Slate grey */
+  --color-text-muted: #6B7280;
+
+  /* Accents */
+  --accent-primary: #38bdf8; /* Vibrant light blue / cyan for dark mode */
+  --accent-secondary: #0066fe;
+  --accent-glow: rgba(56, 189, 248, 0.15);
+  --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #0066fe 100%);
+  --danger-color: #ef4444;
+  --success-color: #10b981;
+
+  /* Borders & Glass */
+  --border-glass: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(56, 189, 248, 0.4);
+  --shadow-premium: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  --glass-blur: blur(12px);
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+  /* Spacing */
+  --container-max-width: 1200px;
+  --section-padding: 100px 24px;
+
+  /* Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
