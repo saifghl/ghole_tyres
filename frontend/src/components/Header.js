@@ -59,11 +59,13 @@ export default function Header() {
           <span></span>
         </button>
 
+
+        {/*-------------------------- navbar -------------------------------*/}
         <nav className={`navbar ${mobileMenuOpen ? 'active' : ''}`}>
           <ul className="nav-list">
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link to="/" className="nav-link" onClick={(e) => handleHashLinkClick(e, '#home')}>Home</Link>
-            </li>
+            </li> */}
 
             <li className="nav-item dropdown">
               <span className="nav-link dropdown-toggle">
