@@ -17,7 +17,7 @@ export default function BookingForm({ showToast, initialService }) {
     vehicleType: '',
     serviceType: getMappedService(initialService),
     preferredDate: '',
-    preferredTime: '09:00 AM - 11:00 AM',
+    preferredTime: '07:00 AM - 9:00 AM',
     notes: '',
   });
   const [loading, setLoading] = useState(false);
@@ -28,8 +28,6 @@ export default function BookingForm({ showToast, initialService }) {
     }
   }, [initialService]);
 
-  // Replace with your Web3Forms Access Key: https://web3forms.com
-  const ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY_HERE';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -41,11 +39,18 @@ export default function BookingForm({ showToast, initialService }) {
     setLoading(true);
 
     try {
-      if (ACCESS_KEY === 'YOUR_WEB3FORMS_ACCESS_KEY_HERE') {
-        // Fallback simulated success
-        console.log('Booking request details:', formData);
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        showToast('Booking request received! (Dev Mode: Simulated Email Dispatch)', 'success');
+      const response = await fetch('http://localhost:5000/api/book', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      if (response.ok && result.success) {
+        showToast('Opening WhatsApp... Please click SEND to complete your request!', 'success');
         setFormData({
           name: '',
           email: '',
@@ -56,37 +61,13 @@ export default function BookingForm({ showToast, initialService }) {
           preferredTime: '09:00 AM - 11:00 AM',
           notes: '',
         });
-      } else {
-        const response = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-          body: JSON.stringify({
-            access_key: ACCESS_KEY,
-            subject: `New Service Appointment from ${formData.name}`,
-            from_name: 'Ghole Tyres Bookings',
-            ...formData,
-          }),
-        });
-
-        const result = await response.json();
-        if (result.success) {
-          showToast('Service booking request sent successfully!', 'success');
-          setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            vehicleType: '',
-            serviceType: 'Wheel Alignment & Balancing',
-            preferredDate: '',
-            preferredTime: '09:00 AM - 11:00 AM',
-            notes: '',
-          });
-        } else {
-          showToast('Failed to send booking. Please try again.', 'error');
+        if (result.whatsappUrl) {
+          setTimeout(() => {
+            window.location.href = result.whatsappUrl;
+          }, 300);
         }
+      } else {
+        showToast(result.message || 'Failed to send booking. Please try again.', 'error');
       }
     } catch (err) {
       showToast('An error occurred. Please try again.', 'error');
@@ -99,7 +80,7 @@ export default function BookingForm({ showToast, initialService }) {
     <form className="glass-panel form-container" onSubmit={handleSubmit}>
       <h3 className="form-title">Schedule a Service</h3>
       <p className="form-subtitle">Pick a service and your preferred slot. We will confirm your appointment via email or call.</p>
-      
+
       <div className="form-grid">
         <div className="form-group">
           <label htmlFor="book-name">Full Name</label>
@@ -110,7 +91,7 @@ export default function BookingForm({ showToast, initialService }) {
             value={formData.name}
             onChange={handleChange}
             required
-            placeholder="John Doe"
+            placeholder="Full Name"
           />
         </div>
 
@@ -124,7 +105,7 @@ export default function BookingForm({ showToast, initialService }) {
               value={formData.email}
               onChange={handleChange}
               required
-              placeholder="john@example.com"
+              placeholder="[EMAIL_ADDRESS]"
             />
           </div>
           <div className="form-group">
@@ -136,7 +117,7 @@ export default function BookingForm({ showToast, initialService }) {
               value={formData.phone}
               onChange={handleChange}
               required
-              placeholder="+1 (555) 000-0000"
+              placeholder="+91 1234567890"
             />
           </div>
         </div>

@@ -1,106 +1,65 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../css/services.css';
 import '../css/history.css';
 
 const HISTORY_MILESTONES = [
   {
-    year: '2018',
-    title: 'The Foundation',
-    subtitle: 'A Humble Beginning',
-    image: '/images/shop_exterior.png',
-    text: 'Ghole Tyres began with a simple promise: fair rates, honest service, and dependable new and pre-owned tyres for everyday drivers.',
+    year: '1984',
+    title: 'Founding & Legacy',
+    subtitle: 'Mohammad Qasim Ghole',
+    image: 'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80',
+    text: 'Established in 1984 by Mohammad Qasim Ghole as a small tyre repair shop. Built on honest and professional craftsmanship, the legacy is now carried forward by his sons, Mubeen Ghole and Moin Ghole.',
     accent: '#38bdf8'
   },
   {
-    year: '2021',
-    title: 'Precision Diagnostics',
-    subtitle: 'Computer Balancing',
-    image: '/images/shop_interior.png',
-    text: 'We added advanced wheel balancing and alignment tools to improve tyre life, handling, and customer confidence.',
+    year: 'Growth',
+    title: 'Modernization & Apollo Dealership',
+    subtitle: 'Wheel Alignment & Balancing',
+    image: 'https://images.unsplash.com/photo-1625047509168-a7026f36de04?auto=format&fit=crop&w=800&q=80',
+    text: 'Modernized with computerized wheel alignment, balancing, and advanced diagnostic equipment. Ghole Tyres also became an authorized dealer for Apollo Tyres in the region.',
     accent: '#0066fe'
   },
   {
-    year: '2024',
-    title: 'Premium Service Lounge',
-    subtitle: 'Comfort While You Wait',
-    image: '/images/shop_lounge.png',
-    text: 'The workshop experience expanded with a more comfortable waiting area and a smoother service flow for every visit.',
+    year: 'Expansion',
+    title: 'Multi-Brand Authorized Agency',
+    subtitle: 'CEAT, Goodyear, Yokohama & Bridgestone',
+    image: 'https://images.unsplash.com/photo-1578844251758-2f71da64c96f?auto=format&fit=crop&w=800&q=80',
+    text: 'Continuously expanding with high-precision machinery and official dealership partnerships with leading global brands including CEAT, Goodyear, Yokohama, and Bridgestone.',
     accent: '#10b981'
   }
 ];
 
-export default function Services({ showToast }) {
-  const serviceList = [
-    {
-      id: 'tyre-repair',
-      icon: '',
-      title: 'Tyre Repair & Vulcanization',
-      desc: 'Professional puncture fixes, valve stem replacements, and internal patch vulcanization for tubeless tyres.',
-    },
-    {
-      id: 'wheel-balancing',
-      icon: '',
-      title: 'Wheel Balancing & Alignment',
-      desc: 'State-of-the-art computer balancing and laser wheel alignment to prevent uneven tyre wear and ensure smooth rides.',
-    },
-    {
-      id: 'safety-diagnostics',
-      icon: '',
-      title: 'Tread & Safety Diagnostics',
-      desc: 'Complimentary 10-point check analyzing tread depth, sidewall cracks, tyre pressure settings, and overall wear patterns.',
-    },
-  ];
-
+export default function Services() {
   return (
     <section id="services" className="services-section">
       <div className="container">
-        <h2 className="section-title">Our Services & Repairs</h2>
-
-        <div className="services-grid">
-          <div className="services-info">
-            <div className="cards-stack">
-              {serviceList.map((service, idx) => (
-                <Link to={`/services/${service.id}`} key={idx} className="service-card-link-wrapper">
-                  <div className="glass-panel service-card">
-                    <div className="service-icon">{service.icon}</div>
-                    <div className="service-details">
-                      <h4>{service.title}</h4>
-                      <p>{service.desc}</p>
-                      <span className="service-read-more">Read Details & Book &rarr;</span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+        <div className="services-history-panel reveal-up">
+          <div className="history-header">
+            <span className="subtitle-badge">EST. 1984</span>
+            <h2 className="section-title">Our History & Legacy</h2>
+            <p className="history-intro-desc">
+              Founded in 1984, Ghole Tyres has grown from a trusted local repair shop into a modern multi-brand dealership and high-precision service center.
+            </p>
           </div>
 
-          <div className="services-history-panel reveal-up">
-            <span className="subtitle-badge">EST. 2018</span>
-            <h3>Our History & Journey</h3>
-            <p>
-              From a small service bay to a trusted tyre diagnostics and repair destination, our story is built on fair pricing, careful workmanship, and dependable customer service.
-            </p>
-
-            <div className="history-cards-grid">
-              {HISTORY_MILESTONES.map((milestone, idx) => (
-                <article key={idx} className="history-card glass-panel">
-                  <div className="card-reflection"></div>
-                  <div className="card-image-wrapper">
-                    <img src={milestone.image} alt={milestone.title} className="card-image" />
-                    <div className="card-year-tag" style={{ background: milestone.accent }}>
-                      {milestone.year}
-                    </div>
+          <div className="full-width-history">
+            {HISTORY_MILESTONES.map((milestone, idx) => (
+              <article key={idx} className="history-card glass-panel">
+                <div className="card-image-wrapper">
+                  <img src={milestone.image} alt={milestone.title} className="card-image" />
+                  <div className="card-year-tag">
+                    <span className="year-accent-dot" style={{ background: milestone.accent, boxShadow: `0 0 6px ${milestone.accent}` }}></span>
+                    {milestone.year}
                   </div>
+                </div>
 
-                  <div className="card-content">
-                    <span className="card-subtitle">{milestone.subtitle}</span>
-                    <h4 className="card-title">{milestone.title}</h4>
-                    <p className="card-desc">{milestone.text}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
+                <div className="card-content">
+                  <span className="card-subtitle">{milestone.subtitle}</span>
+                  <h4 className="card-title">{milestone.title}</h4>
+                  <p className="card-desc">{milestone.text}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </div>

@@ -100,10 +100,35 @@ export default function Header() {
             <li className="nav-item">
               <Link to="/" className="nav-link" onClick={(e) => handleHashLinkClick(e, '#contact')}>Contact</Link>
             </li>
-            <li className="nav-item nav-cta">
-              <a href="tel: +918600802010" className="btn btn-primary nav-phone-btn">
-                Call Now: +91 8600802010
-              </a>
+            <li className="nav-item dropdown contact-dropdown">
+              <span className="nav-link dropdown-toggle btn btn-primary nav-phone-btn" style={{ display: 'inline-flex', padding: '8px 18px', color: '#fff', alignItems: 'center' }}>
+                Contact Us <span className="dropdown-caret" style={{ marginLeft: '6px' }}>▼</span>
+              </span>
+              <ul className="dropdown-menu contact-menu">
+                <li className="contact-group">
+                  <div className="contact-number-label">Main Line</div>
+                  <div className="contact-links">
+                    <a href="tel:+918600802010" className="contact-action-btn call-btn">
+                      Call: +91 8600802010
+                    </a>
+                    <a href="https://wa.me/918600802010" target="_blank" rel="noopener noreferrer" className="contact-action-btn wa-btn">
+                      WhatsApp Chat
+                    </a>
+                  </div>
+                </li>
+                <li className="contact-separator"></li>
+                <li className="contact-group">
+                  <div className="contact-number-label">Secondary Line</div>
+                  <div className="contact-links">
+                    <a href="tel:+919011707010" className="contact-action-btn call-btn">
+                      Call: +91 9011707010
+                    </a>
+                    <a href="https://wa.me/919011707010" target="_blank" rel="noopener noreferrer" className="contact-action-btn wa-btn">
+                      WhatsApp Chat
+                    </a>
+                  </div>
+                </li>
+              </ul>
             </li>
           </ul>
         </nav>

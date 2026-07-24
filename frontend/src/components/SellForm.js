@@ -15,8 +15,6 @@ export default function SellForm({ showToast }) {
   });
   const [loading, setLoading] = useState(false);
 
-  // Replace with your Web3Forms Access Key: https://web3forms.com
-  const ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY_HERE';
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,11 +35,18 @@ export default function SellForm({ showToast }) {
     }
 
     try {
-      if (ACCESS_KEY === 'YOUR_WEB3FORMS_ACCESS_KEY_HERE') {
-        // Fallback simulated success if user has not set their key yet
-        console.log('Form data to send to email:', formData);
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        showToast('Enquiry received! (Dev Mode: Simulated Email Dispatch)', 'success');
+      const response = await fetch('http://localhost:5000/api/sell', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+      if (response.ok && result.success) {
+        showToast('Opening WhatsApp... Please click SEND to complete your request!', 'success');
         setFormData({
           name: '',
           email: '',
@@ -54,39 +59,13 @@ export default function SellForm({ showToast }) {
           tyreType: 'tubeless',
           notes: '',
         });
-      } else {
-        const response = await fetch('https://api.web3forms.com/submit', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-          body: JSON.stringify({
-            access_key: ACCESS_KEY,
-            subject: `New Second-Hand Tyre Offer from ${formData.name}`,
-            from_name: 'Ghole Tyres Portal',
-            ...formData,
-          }),
-        });
-
-        const result = await response.json();
-        if (result.success) {
-          showToast('Your tyre selling offer has been sent successfully!', 'success');
-          setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            brand: '',
-            rimSize: '16',
-            mfgYear: '',
-            treadDepth: '80',
-            sidewallDamage: 'no',
-            tyreType: 'tubeless',
-            notes: '',
-          });
-        } else {
-          showToast('Failed to send email. Please try again.', 'error');
+        if (result.whatsappUrl) {
+          setTimeout(() => {
+            window.location.href = result.whatsappUrl;
+          }, 300);
         }
+      } else {
+        showToast(result.message || 'Failed to send valuation request. Please try again.', 'error');
       }
     } catch (err) {
       showToast('An error occurred. Please try again.', 'error');
@@ -110,7 +89,7 @@ export default function SellForm({ showToast }) {
             value={formData.name}
             onChange={handleChange}
             required
-            placeholder="Ankit Kumar"
+            placeholder="Full Name"
           />
         </div>
 
@@ -136,7 +115,7 @@ export default function SellForm({ showToast }) {
               value={formData.phone}
               onChange={handleChange}
               required
-              placeholder="+91 999999999"
+              placeholder="+91 1234567890"
             />
           </div>
         </div>
